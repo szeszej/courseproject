@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input, AfterViewInit } from "@angular/core";
+import { Recipe } from "../recipe.model";
 
 @Component({
   selector: "app-recipedetail",
@@ -6,6 +7,11 @@ import { Component } from "@angular/core";
   styleUrls: ["./recipedetail.component.css"]
 })
 
-export class RecipedetailComponent {
+export class RecipedetailComponent implements AfterViewInit {
+  @Input() recipe: Recipe;
 
+  ngAfterViewInit() {
+    console.log(this.recipe);
+
+  }
 }
