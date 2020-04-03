@@ -4,10 +4,10 @@
     <div class="col-md-12">
         <div class="row" *ngIf="tab === 'recipes'">
           <div class="col-md-5">
-            <app-recipelist (recipeClick)="showRecipe($event)"></app-recipelist>
+            <app-recipelist></app-recipelist>
           </div>
           <div class="col-md-7">
-            <app-recipedetail [recipe]="currentRecipe" *ngIf="currentRecipe; else infoText"></app-recipedetail>
+            <app-recipedetail></app-recipedetail>
             <ng-template #infoText>
               <p>Wybierz przepis!</p>
             </ng-template>

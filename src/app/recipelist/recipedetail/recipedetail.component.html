@@ -1,32 +1,37 @@
-<div class="row">
-  <div class="col-xs-12">
-    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 20em">
+<div *ngIf="recipe; else infoText">
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 20em">
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="cols-xs-12">
-    <h1>{{ recipe.name }}</h1>
+  <div class="row">
+    <div class="cols-xs-12">
+      <h1>{{ recipe.name }}</h1>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="btn-group" appDropdown>
-      <button type="button" class="btn btn-primary dropdown-toggle" name="button">Zarządzaj <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Dodaj do listy zakupów</a></li>
-        <li><a href="#">Edytuj przepis</a></li>
-        <li><a href="#">Usuń przepis</a></li>
-      </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group" appDropdown>
+        <button type="button" class="btn btn-primary dropdown-toggle" name="button">Zarządzaj <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Dodaj do listy zakupów</a></li>
+          <li><a href="#">Edytuj przepis</a></li>
+          <li><a href="#">Usuń przepis</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{{ recipe.description }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>Składniki</p>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12">
-    <p>{{ recipe.description }}</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <p>Składniki</p>
-  </div>
-</div>
+<ng-template #infoText>
+  <p>Wybierz przepis!</p>
+</ng-template>

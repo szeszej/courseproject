@@ -9,12 +9,9 @@ import { Recipe } from "./recipelist/recipe.model";
 export class AppComponent {
   title = 'courseproject';
   tab = "recipes";
-  currentRecipe: Recipe;
 
   constructor() {
 
   }
-  showRecipe(recipe) {
-    this.currentRecipe = recipe;
-  }
+
 }
