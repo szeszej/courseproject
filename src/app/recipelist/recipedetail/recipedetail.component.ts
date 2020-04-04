@@ -8,7 +8,7 @@ import { RecipeListService } from "../recipe-list.service";
   styleUrls: ["./recipedetail.component.css"]
 })
 
-export class RecipedetailComponent implements AfterViewInit {
+export class RecipedetailComponent {
   recipe: Recipe;
 
   constructor(private recipeListService: RecipeListService) {
@@ -17,8 +17,7 @@ export class RecipedetailComponent implements AfterViewInit {
     )
   }
 
-  ngAfterViewInit() {
-    console.log(this.recipe);
-
+  onAddIngredientsClick() {
+    this.recipeListService.onAddIngredientsToList(this.recipe);
   }
 }
