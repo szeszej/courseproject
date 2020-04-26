@@ -14,9 +14,9 @@
       <div class="btn-group" appDropdown>
         <button type="button" class="btn btn-primary dropdown-toggle" name="button">Zarządzaj <span class="caret"></span></button>
         <ul class="dropdown-menu">
-          <li><a href="#" (click)="onAddIngredientsClick()" >Dodaj do listy zakupów</a></li>
-          <li><a href="#">Edytuj przepis</a></li>
-          <li><a href="#">Usuń przepis</a></li>
+          <li><a (click)="onAddIngredientsClick()" >Dodaj do listy zakupów</a></li>
+          <li routerLink="edit"><a>Edytuj przepis</a></li>
+          <li><a>Usuń przepis</a></li>
         </ul>
       </div>
     </div>

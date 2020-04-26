@@ -1,20 +1,8 @@
-<app-header (recipeClick)="tab = $event" (shoppingClick)="tab = $event"></app-header>
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-        <div class="row" *ngIf="tab === 'recipes'">
-          <div class="col-md-5">
-            <app-recipelist></app-recipelist>
-          </div>
-          <div class="col-md-7">
-            <app-recipedetail></app-recipedetail>
-            <ng-template #infoText>
-              <p>Wybierz przepis!</p>
-            </ng-template>
-          </div>
-        </div>
-        <app-shoppinglist *ngIf="tab === 'shopping'"></app-shoppinglist>
-
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

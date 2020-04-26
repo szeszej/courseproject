@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from "@angular/core";
 import { Recipe } from "../recipe.model";
 import { RecipeListService } from "../recipe-list.service";
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: "app-recipedetail",
@@ -10,11 +11,14 @@ import { RecipeListService } from "../recipe-list.service";
 
 export class RecipedetailComponent {
   recipe: Recipe;
+  id: number;
 
-  constructor(private recipeListService: RecipeListService) {
-    this.recipeListService.recipeSelected.subscribe(
-      (recipe: Recipe) => this.recipe = recipe
-    )
+  constructor(private recipeListService: RecipeListService, private route: ActivatedRoute) {
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params["id"];
+      this.recipe = this.recipeListService.getRecipe(this.id);
+})
+
   }
 
   onAddIngredientsClick() {

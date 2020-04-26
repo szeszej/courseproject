@@ -8,12 +8,9 @@ import { Recipe } from "../recipe.model";
 })
 export class RecipeitemComponent {
   @Input() recipe: Recipe;
-
+  @Input() id: number;
   constructor() {
 
-  }
-
-  ngOnInit(): void {
   }
 
 }

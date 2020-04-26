@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Recipe } from "./recipelist/recipe.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,9 @@ import { Recipe } from "./recipelist/recipe.model";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'courseproject';
-  tab = "recipes";
 
-  constructor() {
+
+  constructor(private router: Router) {
 
   }
 

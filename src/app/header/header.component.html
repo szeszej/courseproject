@@ -1,19 +1,19 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">Książka kucharska</a>
+      <a routerLink="" class="navbar-brand">Książka kucharska</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onRecipesClick()">Przepisy</a></li>
-        <li><a href="#" (click)="onShoppingClick()">Lista zakupów</a></li>
+        <li routerLinkActive="active"><a routerLink="/recipes">Przepisy</a></li>
+        <li routerLinkActive="active"><a routerLink="/shop">Lista zakupów</a></li>
       </ul>
       <ul class="nav navar-nav navbar-right">
         <li class="dropdown" appDropdown>
-          <a href="#" class="dropdown-toggle" role="button" >Ustawienia <span class="caret"></span></a>
+          <a class="dropdown-toggle" role="button" >Ustawienia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Zapisz</a></li>
-            <li><a href="#">Wczytaj</a></li>
+            <li><a>Zapisz</a></li>
+            <li><a>Wczytaj</a></li>
           </ul>
         </li>
       </ul>
