@@ -24,4 +24,7 @@ export class ShoppinglistComponent implements OnInit {
     this.igChangeSubscription.unsubscribe()
   }
 
+  onEditIngredient(id) {
+    this.shoppingListService.selectIngredient(id);
+  }
 }

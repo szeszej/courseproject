@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-xs-12">
-    <form class="row">
+    <form class="row" (ngSubmit)="onAddClick(f)" #f="ngForm">
       <div class="col-sm-5 form-group">
         <label for="name">Nazwa</label>
-        <input type="text" id="name" class="form-control" #nameInput>
+        <input type="text" id="name" class="form-control" ngModel name="ingredient" required>
       </div>
       <div class="col-sm-2 form-group">
         <label for="amount">Ilość</label>
-        <input type="number" id="amount" class="form-control" #amountInput>
+        <input type="number" id="amount" class="form-control" ngModel name="amount" required pattern="^[1-9]+[0-9]*$">
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" (click)="onAddClick()">Dodaj</button>
+          <button type="submit" class="btn btn-success" [disabled]="!f.valid">{{ editMode ? "Zmień" : "Dodaj" }}</button>
           <button type="button" class="btn btn-danger">Usuń</button>
-          <button type="button" class="btn btn-primary">Wyczyść</button>
+          <button type="button" class="btn btn-primary" (click)="onReset()">Wyczyść</button>
         </div>
       </div>
     </form>
