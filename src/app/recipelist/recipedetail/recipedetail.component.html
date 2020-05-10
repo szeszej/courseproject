@@ -16,7 +16,7 @@
         <ul class="dropdown-menu">
           <li><a (click)="onAddIngredientsClick()" >Dodaj do listy zakupów</a></li>
           <li routerLink="edit"><a>Edytuj przepis</a></li>
-          <li><a>Usuń przepis</a></li>
+          <li (click)="onDeleteRecipe()"><a>Usuń przepis</a></li>
         </ul>
       </div>
     </div>
