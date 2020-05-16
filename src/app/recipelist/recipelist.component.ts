@@ -14,7 +14,7 @@ export class RecipelistComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   recipeSubscription: Subscription;
   fetchingSubscription: Subscription;
-  fetching = false;
+  fetching = this.recipeListService.getRecipes().length === 0 ? true : false;
 
   constructor(private recipeListService: RecipeListService, private router: Router, private route: ActivatedRoute, private dataStorage: DataStorageService) { }
 
