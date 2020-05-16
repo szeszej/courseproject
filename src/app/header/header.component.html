@@ -12,8 +12,8 @@
         <li class="dropdown" appDropdown>
           <a class="dropdown-toggle" role="button" >Ustawienia <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a>Zapisz</a></li>
-            <li><a>Wczytaj</a></li>
+            <li (click)="onSave()"><a>Zapisz</a></li>
+            <li (click)="onFetch()"><a>Wczytaj</a></li>
           </ul>
         </li>
       </ul>

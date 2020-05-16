@@ -9,10 +9,11 @@ import { Subject } from "rxjs";
 
 export class RecipeListService {
 
-  private recipes: Recipe[] = [
-    new Recipe("Pomidorowa", "Zupa pomidorowa według przepisu babci", "https://i.imgur.com/kgAY8Gx.png", [new Ingredient("Pomidor", 4), new Ingredient("Makaron", 1)]),
-    new Recipe("Jarzynowa", "Zupa jarzynowa według przepisu mamy", "https://i.imgur.com/0FSvEF2.png", [new Ingredient("Marchewka", 2), new Ingredient("Seler", 1)])
-  ];
+  private recipes: Recipe[] = []
+  //  = [
+  //   new Recipe("Pomidorowa", "Zupa pomidorowa według przepisu babci", "https://i.imgur.com/kgAY8Gx.png", [new Ingredient("Pomidor", 4), new Ingredient("Makaron", 1)]),
+  //   new Recipe("Jarzynowa", "Zupa jarzynowa według przepisu mamy", "https://i.imgur.com/0FSvEF2.png", [new Ingredient("Marchewka", 2), new Ingredient("Seler", 1)])
+  // ];
 
   recipesChange = new Subject<Recipe[]>();
 
@@ -42,6 +43,11 @@ export class RecipeListService {
 
   removeRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.recipesChange.next(this.recipes.slice());
+  }
+
+  overwriteRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipesChange.next(this.recipes.slice());
   }
 
