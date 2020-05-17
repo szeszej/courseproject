@@ -1,8 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { User } from "./user.model";
+import { AuthData } from "./auth-data.model";
 import { tap, catchError } from "rxjs/operators";
-import { throwError } from "rxjs";
+import { throwError, BehaviorSubject } from "rxjs";
+import { User } from "./user.model";
+import { Router } from "@angular/router";
 
 export interface AuthResponseData {
   kind: string;
@@ -19,17 +21,27 @@ export interface AuthResponseData {
 })
 
 export class AuthService {
-  token: string;
+  user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  register(user: User) {
-    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBVKlL7MMJauWwA4sxffFukWFVp7tTXkwM", user).pipe(catchError(this.handleError))
-    // , tap((response: AuthResponseData) => this.token = response.idToken)
+  register(user: AuthData) {
+    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBVKlL7MMJauWwA4sxffFukWFVp7tTXkwM", user).pipe(catchError(this.handleError), tap(response => this.handleAuthentication(response.email, response.localId, response.idToken, +response.expiresIn)))
   }
 
-  login(user: User) {
-    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBVKlL7MMJauWwA4sxffFukWFVp7tTXkwM", user).pipe(catchError(this.handleError))
+  login(user: AuthData) {
+    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBVKlL7MMJauWwA4sxffFukWFVp7tTXkwM", user).pipe(catchError(this.handleError), tap(response => this.handleAuthentication(response.email, response.localId, response.idToken, +response.expiresIn)))
+  }
+
+  logout() {
+    this.user.next(null);
+    this.router.navigate(["/auth"])
+  }
+
+  private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
+    let expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
+    let user = new User(email, userId, token, expirationDate)
+    this.user.next(user)
   }
 
   private handleError(error: HttpErrorResponse) {

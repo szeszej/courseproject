@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +14,7 @@ import { DropdownDirective } from "./shared/dropdown.directive";
 
 import { ShoppingListService } from "./shoppinglist/shopping-list.service";
 import { RecipeListService } from "./recipelist/recipe-list.service";
+import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { SelectRecipeComponent } from './recipelist/select-recipe/select-recipe.component';
@@ -43,7 +44,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeListService],
+  providers: [ShoppingListService, RecipeListService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
