@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
-  loginMode = false;
+  loginMode = true;
   isLoading = false;
   error: string = null;
 
