@@ -10,6 +10,8 @@ import { RecipelistComponent } from './recipelist/recipelist.component';
 import { ShoppinglisteditComponent } from './shoppinglist/shoppinglistedit/shoppinglistedit.component';
 import { RecipeitemComponent } from './recipelist/recipeitem/recipeitem.component';
 import { RecipedetailComponent } from './recipelist/recipedetail/recipedetail.component';
+import { AlertComponent } from "./shared/alert/alert.component";
+
 import { DropdownDirective } from "./shared/dropdown.directive";
 
 import { ShoppingListService } from "./shoppinglist/shopping-list.service";
@@ -35,7 +37,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     SelectRecipeComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
