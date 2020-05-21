@@ -13,6 +13,7 @@ import { RecipedetailComponent } from './recipelist/recipedetail/recipedetail.co
 import { AlertComponent } from "./shared/alert/alert.component";
 
 import { DropdownDirective } from "./shared/dropdown.directive";
+import { PlaceholderDirective } from "./shared/placeholder/placeholder.directive";
 
 import { ShoppingListService } from "./shoppinglist/shopping-list.service";
 import { RecipeListService } from "./recipelist/recipe-list.service";
@@ -34,6 +35,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     RecipeitemComponent,
     RecipedetailComponent,
     DropdownDirective,
+    PlaceholderDirective,
     SelectRecipeComponent,
     RecipeEditComponent,
     AuthComponent,
@@ -48,6 +50,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     HttpClientModule
   ],
   providers: [ShoppingListService, RecipeListService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AlertComponent]
 })
 export class AppModule { }

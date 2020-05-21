@@ -4,7 +4,8 @@
     <!-- <div class="alert alert-danger" *ngIf="error">
       <p>{{ error }}</p>
     </div> -->
-    <app-alert [message]="error" *ngIf="error" (close)="error = null"></app-alert>
+    <!-- <app-alert [message]="error" *ngIf="error" (close)="error = null"></app-alert> -->
+    <ng-template appPlaceholder></ng-template>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!isLoading">
       <div class="form-group">
         <label for="email">Email:</label>
