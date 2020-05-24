@@ -13,38 +13,6 @@ import { RecipeResolverService } from "./recipelist/recipe-resolver.service";
 
 const appRoutes: Routes = [
   {
-    path: "recipes",
-    component: RecipelistComponent,
-    canActivate: [AuthGuard],
-    children:
-      [
-        {
-          path: "",
-          component: SelectRecipeComponent,
-          pathMatch: "full"
-        },
-        {
-          path: "new",
-          component: RecipeEditComponent
-        },
-        {
-          path: ":id",
-          component: RecipedetailComponent,
-          resolve: [RecipeResolverService]
-        },
-        {
-          path: ":id/edit",
-          component: RecipeEditComponent,
-          resolve: [RecipeResolverService]
-        }
-      ]
-  },
-
-  {
-    path: "shop",
-    component: ShoppinglistComponent
-  },
-  {
     path: "",
     redirectTo: "/recipes",
     pathMatch: "full"

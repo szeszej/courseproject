@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-xs-12">
         <hr>
-        <app-loading-spinner *ngIf="fetching; else showRecipes"></app-loading-spinner>
+        <!-- <app-loading-spinner *ngIf="fetching; else showRecipes"></app-loading-spinner> -->
         <ng-template #showRecipes>
           <app-recipeitem *ngFor="let recipe of recipes; let i = index" [recipe]="recipe" [id]="i" ></app-recipeitem>
         </ng-template>
