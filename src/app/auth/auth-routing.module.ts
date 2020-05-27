@@ -1,13 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { ShoppinglistComponent } from './shoppinglist.component';
-import { ShoppinglisteditComponent } from './shoppinglistedit/shoppinglistedit.component';
+import { AuthComponent } from './auth.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: ShoppinglistComponent
+    component: AuthComponent
   }
 ]
 
@@ -16,6 +15,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class ShoppingListRoutingModule {
+export class AuthRoutingModule {
 
 }
