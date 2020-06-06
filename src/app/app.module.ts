@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthComponent } from './auth/auth.component';
 
+import { LoggingService } from "./logging.service";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthComponent } from './auth/auth.component';
     SharedModule,
     CoreModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [LoggingService]
 })
 export class AppModule { }
